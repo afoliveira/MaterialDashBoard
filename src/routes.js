@@ -35,10 +35,18 @@ import DashboardPage from "views/Dashboard/Dashboard.js";
 // import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.js";
 // core components/views for RTL layout
 // import RTLPage from "views/RTLPage/RTLPage.js";
+import Adm from "views/Adm/Adm.js"
 import Profile from "views/Form/Profile.js";
 import GestaoPessoas from "views/Formularios/GestaoPessoas";
 import ListagemGestaoPessoas from "views/Formularios/ListagemGestaoPessoas";
 const dashboardRoutes = [
+  {
+    path: "/adm",
+    name: "Adm",
+    icon: Person,
+    component: Adm,
+    layout: "/admin"
+  },
   {
     path: "/profile",
     name: "Perfil",
