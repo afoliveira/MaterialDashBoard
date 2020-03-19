@@ -6,8 +6,8 @@ import InputLabel from "@material-ui/core/InputLabel";
 import {
   MuiPickersUtilsProvider,
   KeyboardTimePicker,
-  KeyboardDatePicker,
-} from '@material-ui/pickers';
+  KeyboardDatePicker
+} from "@material-ui/pickers";
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
@@ -151,11 +151,8 @@ export default function UserProfile() {
                 </GridItem>
               </GridContainer>
               <GridContainer>
-                <GridItem xs={12} sm={12} md={12}>
-                  
-                </GridItem>
+                <GridItem xs={12} sm={12} md={12}></GridItem>
               </GridContainer>
-
             </CardBody>
             <CardFooter>
               <Button color="primary">Update Profile</Button>

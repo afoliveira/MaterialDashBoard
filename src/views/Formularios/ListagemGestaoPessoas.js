@@ -1,4 +1,4 @@
-import React, { useState,Component } from 'react';
+import React, { useState, Component } from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // core components
@@ -8,64 +8,60 @@ import Table from "components/Table/Table.js";
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import CardBody from "components/Card/CardBody.js";
-import axios from 'axios';
+import axios from "axios";
 
 class ListagemGestaoPessoas extends Component {
-
- 
-    constructor(props) {
-      super(props);
-      this.state = {
-        Lista:[],
-        item:[],
-        Dados:[],
-        styles : {
-            cardCategoryWhite: {
-              "&,& a,& a:hover,& a:focus": {
-                color: "rgba(255,255,255,.62)",
-                margin: "0",
-                fontSize: "14px",
-                marginTop: "0",
-                marginBottom: "0"
-              },
-              "& a,& a:hover,& a:focus": {
-                color: "#FFFFFF"
-              }
-            },
-            cardTitleWhite: {
-              color: "#FFFFFF",
-              marginTop: "0px",
-              minHeight: "auto",
-              fontWeight: "300",
-              fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
-              marginBottom: "3px",
-              textDecoration: "none",
-              "& small": {
-                color: "#777",
-                fontSize: "65%",
-                fontWeight: "400",
-                lineHeight: "1"
-              }
-            },
+  constructor(props) {
+    super(props);
+    this.state = {
+      Lista: [],
+      item: [],
+      Dados: [],
+      styles: {
+        cardCategoryWhite: {
+          "&,& a,& a:hover,& a:focus": {
+            color: "rgba(255,255,255,.62)",
+            margin: "0",
+            fontSize: "14px",
+            marginTop: "0",
+            marginBottom: "0"
+          },
+          "& a,& a:hover,& a:focus": {
+            color: "#FFFFFF"
+          }
+        },
+        cardTitleWhite: {
+          color: "#FFFFFF",
+          marginTop: "0px",
+          minHeight: "auto",
+          fontWeight: "300",
+          fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
+          marginBottom: "3px",
+          textDecoration: "none",
+          "& small": {
+            color: "#777",
+            fontSize: "65%",
+            fontWeight: "400",
+            lineHeight: "1"
+          }
         }
-     }
-   };
+      }
+    };
+  }
 
-   componentDidMount() {
-    debugger;
-    axios.get('http://localhost:8000/api/gestao-pessoas/todos', {  })
-    .then((result) => {
+  componentDidMount() {
+    axios.get("http://192.168.15.12:3001/gestao-pessoas", {}).then(result => {
       //access the results here....
-      this.setState({Lista: result.data});
-      this.setState({Dados: this.state.Lista});
+      this.setState({ Lista: result.data });
+      this.setState({ Dados: this.state.Lista });
       console.log(result.data);
     });
     //this.state.Lista.forEach(function(item, index){
-      // console.log(item);   
+    // console.log(item);
     //});
   }
 
-   render(){
+  render() {
     //const classes = useStyles();
     const classes = makeStyles(this.state.styles);
     return (
@@ -81,7 +77,13 @@ class ListagemGestaoPessoas extends Component {
             <CardBody>
               <Table
                 tableHeaderColor="primary"
-                tableHead={["Id","Nome", "Sobrenome", "Nascimento", "Cadastro"]}
+                tableHead={[
+                  "Id",
+                  "Nome",
+                  "Sobrenome",
+                  "Nascimento",
+                  "Cadastro"
+                ]}
                 tableData={this.state.Dados}
                 // tableData={[
                 //   ["Dakota Rice", "Niger", "Oud-Turnhout", "$36,738"],
@@ -98,7 +100,7 @@ class ListagemGestaoPessoas extends Component {
       </GridContainer>
     );
   }
-}      
+}
 
 export default ListagemGestaoPessoas;
 

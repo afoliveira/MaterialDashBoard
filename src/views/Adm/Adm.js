@@ -49,137 +49,118 @@ export default function Adm() {
       <GridContainer>
         <Card>
           <CardHeader color="danger">
-              <h4 className={classes.cardTitleWhite}>Administrativo</h4>
-              <p className={classes.cardCategoryWhite}>Cadastro de Tabelas base</p>
+            <h4 className={classes.cardTitleWhite}>Administrativo</h4>
+            <p className={classes.cardCategoryWhite}>
+              Cadastro de Tabelas base
+            </p>
           </CardHeader>
           <CardBody>
-              <GridContainer>
+            <GridContainer>
               <GridItem xs={12} sm={12} md={3}>
-              <Card chart>
-                <CardBody>
-                  <h4 className={classes.cardTitle}>Tipo de Endereço</h4>
-                  <p>
-                    Tipo de endereço do usuário
-                  </p>
-                  <Button color="primary">Acessar</Button>
-                </CardBody>
-              </Card>
+                <Card chart>
+                  <CardBody>
+                    <h4 className={classes.cardTitle}>Tipo de Endereço</h4>
+                    <p>Tipo de endereço do usuário</p>
+                    <Button color="primary">Acessar</Button>
+                  </CardBody>
+                </Card>
               </GridItem>
               <GridItem xs={12} sm={12} md={3}>
-              <Card chart>
-                <CardBody>
-                  <h4 className={classes.cardTitle}>Tipo de Subunidade de Endereço</h4>
-                  <p>
-                    Tipo de endereço do usuário
-                  </p>
-                  <Button color="primary">Acessar</Button>
-                </CardBody>
-              </Card>
+                <Card chart>
+                  <CardBody>
+                    <h4 className={classes.cardTitle}>
+                      Tipo de Subunidade de Endereço
+                    </h4>
+                    <p>Tipo de endereço do usuário</p>
+                    <Button color="primary">Acessar</Button>
+                  </CardBody>
+                </Card>
               </GridItem>
               <GridItem xs={12} sm={12} md={3}>
-              <Card chart>
-                <CardBody>
-                  <h4 className={classes.cardTitle}>Sexo</h4>
-                  <p>
-                    Tipo de endereço do usuário
-                  </p>
-                  <Button color="primary">Acessar</Button>
-                </CardBody>
-              </Card>
+                <Card chart>
+                  <CardBody>
+                    <h4 className={classes.cardTitle}>Sexo</h4>
+                    <p>Tipo de endereço do usuário</p>
+                    <Button color="primary">Acessar</Button>
+                  </CardBody>
+                </Card>
               </GridItem>
               <GridItem xs={12} sm={12} md={3}>
-              <Card chart>
-                <CardBody>
-                  <h4 className={classes.cardTitle}>Estado Civil</h4>
-                  <p>
-                    Tipo de endereço do usuário
-                  </p>
-                  <Button color="primary">Acessar</Button>
-                </CardBody>
-              </Card>
+                <Card chart>
+                  <CardBody>
+                    <h4 className={classes.cardTitle}>Estado Civil</h4>
+                    <p>Tipo de endereço do usuário</p>
+                    <Button color="primary">Acessar</Button>
+                  </CardBody>
+                </Card>
               </GridItem>
               <GridItem xs={12} sm={12} md={3}>
-              <Card chart>
-                <CardBody>
-                  <h4 className={classes.cardTitle}>Filiação</h4>
-                  <p>
-                    Tipo de endereço do usuário
-                  </p>
-                  <Button color="primary">Acessar</Button>
-                </CardBody>
-              </Card>
+                <Card chart>
+                  <CardBody>
+                    <h4 className={classes.cardTitle}>Filiação</h4>
+                    <p>Tipo de endereço do usuário</p>
+                    <Button color="primary">Acessar</Button>
+                  </CardBody>
+                </Card>
               </GridItem>
               <GridItem xs={12} sm={12} md={3}>
-              <Card chart>
-                <CardBody>
-                  <h4 className={classes.cardTitle}>Órgão Emissor</h4>
-                  <p>
-                    Tipo de endereço do usuário
-                  </p>
-                  <Button color="primary">Acessar</Button>
-                </CardBody>
-              </Card>
+                <Card chart>
+                  <CardBody>
+                    <h4 className={classes.cardTitle}>Órgão Emissor</h4>
+                    <p>Tipo de endereço do usuário</p>
+                    <Button color="primary">Acessar</Button>
+                  </CardBody>
+                </Card>
               </GridItem>
               <GridItem xs={12} sm={12} md={3}>
-              <Card chart>
-                <CardBody>
-                  <h4 className={classes.cardTitle}>País</h4>
-                  <p>
-                    Tipo de endereço do usuário
-                  </p>
-                  <Button color="primary">Acessar</Button>
-                </CardBody>
-              </Card>
+                <Card chart>
+                  <CardBody>
+                    <h4 className={classes.cardTitle}>País</h4>
+                    <p>Tipo de endereço do usuário</p>
+                    <Button color="primary">Acessar</Button>
+                  </CardBody>
+                </Card>
               </GridItem>
               <GridItem xs={12} sm={12} md={3}>
-              <Card chart>
-                <CardBody>
-                  <h4 className={classes.cardTitle}>Estado</h4>
-                  <p>
-                    Tipo de endereço do usuário
-                  </p>
-                  <Button color="primary">Acessar</Button>
-                </CardBody>
-              </Card>
+                <Card chart>
+                  <CardBody>
+                    <h4 className={classes.cardTitle}>Estado</h4>
+                    <p>Tipo de endereço do usuário</p>
+                    <Button color="primary">Acessar</Button>
+                  </CardBody>
+                </Card>
               </GridItem>
               <GridItem xs={12} sm={12} md={3}>
-              <Card chart>
-                <CardBody>
-                  <h4 className={classes.cardTitle}>Município</h4>
-                  <p>
-                    Tipo de endereço do usuário
-                  </p>
-                  <Button color="primary">Acessar</Button>
-                </CardBody>
-              </Card>
+                <Card chart>
+                  <CardBody>
+                    <h4 className={classes.cardTitle}>Município</h4>
+                    <p>Tipo de endereço do usuário</p>
+                    <Button color="primary">Acessar</Button>
+                  </CardBody>
+                </Card>
               </GridItem>
               <GridItem xs={12} sm={12} md={3}>
-              <Card chart>
-                <CardBody>
-                  <h4 className={classes.cardTitle}>Bairro</h4>
-                  <p>
-                    Tipo de endereço do usuário
-                  </p>
-                  <Button color="primary">Acessar</Button>
-                </CardBody>
-              </Card>
+                <Card chart>
+                  <CardBody>
+                    <h4 className={classes.cardTitle}>Bairro</h4>
+                    <p>Tipo de endereço do usuário</p>
+                    <Button color="primary">Acessar</Button>
+                  </CardBody>
+                </Card>
               </GridItem>
               <GridItem xs={12} sm={12} md={3}>
-              <Card chart>
-                <CardBody>
-                  <h4 className={classes.cardTitle}>Logradouro</h4>
-                  <p>
-                    Tipo de endereço do usuário
-                  </p>
-                  <Button color="primary">Acessar</Button>
-                </CardBody>
-              </Card>
+                <Card chart>
+                  <CardBody>
+                    <h4 className={classes.cardTitle}>Logradouro</h4>
+                    <p>Tipo de endereço do usuário</p>
+                    <Button color="primary">Acessar</Button>
+                  </CardBody>
+                </Card>
               </GridItem>
-              </GridContainer>
-
-            </CardBody>
-          </Card>
-        </GridContainer>
+            </GridContainer>
+          </CardBody>
+        </Card>
+      </GridContainer>
     </div>
-);
+  );
 }
