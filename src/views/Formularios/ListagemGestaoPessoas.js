@@ -4,9 +4,14 @@ import { makeStyles } from "@material-ui/core/styles";
 // core components
 import GridItem from "components/Grid/GridItem.js";
 import GridContainer from "components/Grid/GridContainer.js";
-import Table from "components/Table/Table.js";
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
+import Button from "components/CustomButtons/Button";
 import CardBody from "components/Card/CardBody.js";
 import axios from "axios";
 
@@ -14,55 +19,27 @@ class ListagemGestaoPessoas extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      Lista: [],
-      item: [],
-      Dados: [],
-      styles: {
-        cardCategoryWhite: {
-          "&,& a,& a:hover,& a:focus": {
-            color: "rgba(255,255,255,.62)",
-            margin: "0",
-            fontSize: "14px",
-            marginTop: "0",
-            marginBottom: "0"
-          },
-          "& a,& a:hover,& a:focus": {
-            color: "#FFFFFF"
-          }
-        },
-        cardTitleWhite: {
-          color: "#FFFFFF",
-          marginTop: "0px",
-          minHeight: "auto",
-          fontWeight: "300",
-          fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
-          marginBottom: "3px",
-          textDecoration: "none",
-          "& small": {
-            color: "#777",
-            fontSize: "65%",
-            fontWeight: "400",
-            lineHeight: "1"
-          }
-        }
+      Lista: []
       }
-    };
+    }
+  
+  createData(name, calories, fat, carbs, protein) {
+    return { name, calories, fat, carbs, protein };
   }
-
+  
   componentDidMount() {
-    axios.get("http://192.168.15.12:3001/gestao-pessoas", {}).then(result => {
-      //access the results here....
-      this.setState({ Lista: result.data });
-      this.setState({ Dados: this.state.Lista });
-      console.log(result.data);
+    
+    axios.get("http://192.168.15.12:3001/gestao_pessoas") // Mudar o endpoint para o endereço da sua API
+    .then(result => {
+      const Lista = result.data;
+      this.setState({ Lista });
     });
-    //this.state.Lista.forEach(function(item, index){
-    // console.log(item);
-    //});
+
+
   }
 
   render() {
-    //const classes = useStyles();
+    const {Lista} = this.state;
     const classes = makeStyles(this.state.styles);
     return (
       <GridContainer>
@@ -70,30 +47,36 @@ class ListagemGestaoPessoas extends Component {
           <Card>
             <CardHeader color="primary">
               <h4 className={classes.cardTitleWhite}>Simple Table</h4>
-              <p className={classes.cardCategoryWhite}>
-                Here is a subtitle for this table
-              </p>
             </CardHeader>
             <CardBody>
-              <Table
-                tableHeaderColor="primary"
-                tableHead={[
-                  "Id",
-                  "Nome",
-                  "Sobrenome",
-                  "Nascimento",
-                  "Cadastro"
-                ]}
-                tableData={this.state.Dados}
-                // tableData={[
-                //   ["Dakota Rice", "Niger", "Oud-Turnhout", "$36,738"],
-                //   ["Minerva Hooper", "Curaçao", "Sinaai-Waas", "$23,789"],
-                //   ["Sage Rodriguez", "Netherlands", "Baileux", "$56,142"],
-                //   ["Philip Chaney", "Korea, South", "Overland Park", "$38,735"],
-                //   ["Doris Greene", "Malawi", "Feldkirchen in Kärnten", "$63,542"],
-                //   ["Mason Porter", "Chile", "Gloucester", "$78,615"]
-                // ]}
-              />
+              <Table aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell>ID</TableCell>
+                    <TableCell>Nome</TableCell>
+                    <TableCell>Sobrenome</TableCell>
+                    <TableCell>Data de Nascimento</TableCell>
+                    <TableCell>Data de Cadastro</TableCell>
+                    <TableCell></TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {Lista.map(row => (
+                    <TableRow key={row.gpe_id_gpe}>
+                      <TableCell>{row.gpe_id_gpe}</TableCell>
+                      <TableCell>{row.gpe_nom_pessoa}</TableCell>
+                      <TableCell>{row.gpe_nom_sobre_pessoa}</TableCell>
+                      <TableCell>{row.gpe_dat_nascimento}</TableCell>
+                      <TableCell>{row.gpe_dat_cadastro}</TableCell>
+                      <TableCell>
+                        <Button color="info">Editar</Button>
+                        <Button color="danger">Apagar</Button>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+
             </CardBody>
           </Card>
         </GridItem>
@@ -103,48 +86,3 @@ class ListagemGestaoPessoas extends Component {
 }
 
 export default ListagemGestaoPessoas;
-
-/*const styles = {
-  cardCategoryWhite: {
-    "&,& a,& a:hover,& a:focus": {
-      color: "rgba(255,255,255,.62)",
-      margin: "0",
-      fontSize: "14px",
-      marginTop: "0",
-      marginBottom: "0"
-    },
-    "& a,& a:hover,& a:focus": {
-      color: "#FFFFFF"
-    }
-  },
-  cardTitleWhite: {
-    color: "#FFFFFF",
-    marginTop: "0px",
-    minHeight: "auto",
-    fontWeight: "300",
-    fontFamily: "'Roboto', 'Helvetica', 'Arial', sans-serif",
-    marginBottom: "3px",
-    textDecoration: "none",
-    "& small": {
-      color: "#777",
-      fontSize: "65%",
-      fontWeight: "400",
-      lineHeight: "1"
-    }
-  }
-};
-
-const useStyles = makeStyles(styles);
-
-function Dados() { 
-    axios.get('http://localhost:8000/api/gestao-pessoas/todos', {  })
-    .then((result) => {
-      //access the results here....
-      const Data = result.data; 
-      //this.setState({Lista: result.data});
-      console.log(Data);
-    });
-}
-
-/*export default function TableList(Data) {
-}*/
