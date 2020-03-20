@@ -1,5 +1,5 @@
 import { makeStyles } from "@material-ui/styles";
-import auth from "../../../../../public/images/auth";
+// import auth from "../../../../../public/images/auth";
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -9,16 +9,16 @@ const useStyles = makeStyles(() => ({
   grid: {
     height: "100%"
   },
-  quoteContainer: {
-    display: "none"
-  },
+  // quoteContainer: {
+  //   display: "none"
+  // },
   quote: {
-    backgroundColor: "#FFF",
+    backgroundColor: "#EEE",
     height: "100%",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundImage: auth,
+    backgroundImage: "window.location.origin + /public/images/auth.jpg",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center"
