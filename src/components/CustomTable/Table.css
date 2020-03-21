@@ -1,0 +1,25 @@
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-test {
+    flex-wrap: wrap;
+}
+
+.options {
+    text-align: right !important;
+    min-width: 100% !important;
+}
+
+.btn-options {
+    display: flex;
+    justify-content: space-between;
+}
+.btn-edit {
+    color: #00acc1;
+}
+.btn-delete {
+    color: #f44336;
+}

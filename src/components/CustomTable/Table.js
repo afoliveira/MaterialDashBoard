@@ -12,9 +12,13 @@ import TableRow from '@material-ui/core/TableRow';
 import Card from "components/Card/Card.js";
 import CardHeader from "components/Card/CardHeader.js";
 import Button from "components/CustomButtons/Button";
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
+import EditIcon from '@material-ui/icons/Edit';
 import CardBody from "components/Card/CardBody.js";
 import axios from "axios";
 
+import "./Table.css";
 class CustomTable extends Component {
     constructor(props) {
         super(props);
@@ -36,6 +40,20 @@ class CustomTable extends Component {
         this.loadItem(this.props.url);
     }
 
+    async createItem() {
+        axios.post(`http://192.168.15.12:3001/${this.props.url}`, {
+            "gestao_pessoa": {
+                "gpe_nom_pessoa": "Fred",
+                "gpe_nom_sobre_pessoa": "Kruger",
+                "gpe_dat_nascimento": "16/07/1990",
+            }
+        })
+        .then( response => {
+            console.log(response);
+            this.loadItem(this.props.url);
+        });
+    }
+
     async loadItem(url) {
         axios.get(`http://192.168.15.12:3001/${url}`) // Mudar o endpoint para o endereço da sua API
         .then(result => {
@@ -50,10 +68,10 @@ class CustomTable extends Component {
         return (
             <GridContainer>
                 <GridItem xs={12} sm={12} md={12}>
-                    <Card>
-                        <CardHeader color="primary">
+                    <Card className="card-test">
+                        <CardHeader className="d-flex" color="gray" >
                             <h4>{this.props.title}</h4>
-                            <Button color="primary">Cadastrar</Button>
+                            <Button color="primary" size="sm">Cadastrar</Button>
                         </CardHeader>
                         <CardBody>
                             <Table aria-label="simple table">
@@ -62,7 +80,7 @@ class CustomTable extends Component {
                                         {Labels.map(name => (
                                             <TableCell>{name}</TableCell>
                                         ))}
-                                            <TableCell>Opções</TableCell>
+                                            <TableCell className="options"></TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -72,9 +90,13 @@ class CustomTable extends Component {
                                             {Labels.map(key => (
                                                 <TableCell>{row[key]}</TableCell>
                                             ))}
-                                            <TableCell>
-                                                <Button color="info" size="sm">Editar</Button>
-                                                <Button color="danger" size="sm" onClick={ () => { this.deleteItem((Object.values(row))[0]) }} >Apagar</Button>
+                                            <TableCell className="options">
+                                                <IconButton className="btn-options" onClick={ () => { }}>
+                                                    <EditIcon className="btn-edit" />
+                                                </IconButton>
+                                                <IconButton className="btn-options" onClick={ () => { this.deleteItem((Object.values(row))[0]) }}>
+                                                    <DeleteIcon className="btn-delete" />
+                                                </IconButton>
                                             </TableCell>
                                         </TableRow>
                                     ))}
