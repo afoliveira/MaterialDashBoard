@@ -68,12 +68,12 @@ class CustomTable extends Component {
         return (
             <GridContainer>
                 <GridItem xs={12} sm={12} md={12}>
-                    <Card className="card-test">
+                    <Card className="card-test table-responsive">
                         <CardHeader className="d-flex" color="gray" >
                             <h4>{this.props.title}</h4>
                             <Button color="primary" size="sm">Cadastrar</Button>
                         </CardHeader>
-                        <CardBody className="table-responsive">
+                        <CardBody>
                             <Table aria-label="simple table">
                                 <TableHead>
                                     <TableRow>
