@@ -73,7 +73,7 @@ class CustomTable extends Component {
                             <h4>{this.props.title}</h4>
                             <Button color="primary" size="sm">Cadastrar</Button>
                         </CardHeader>
-                        <CardBody>
+                        <CardBody className="table-responsive">
                             <Table aria-label="simple table">
                                 <TableHead>
                                     <TableRow>

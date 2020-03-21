@@ -8,6 +8,10 @@
     flex-wrap: wrap;
 }
 
+.table-responsive {
+    overflow-y: hidden;
+}
+
 .options {
     text-align: right !important;
     min-width: 100% !important;
